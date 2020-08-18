@@ -7,7 +7,7 @@ import Date from '../components/date'
 const fetch = require('node-fetch');
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/api/balance')
+  const res = await fetch('/api/balance')
   const balance = await res.json()
   return {
     props: {
