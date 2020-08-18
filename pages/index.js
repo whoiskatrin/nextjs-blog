@@ -6,7 +6,7 @@ import Date from '../components/date'
 
 const fetch = require('node-fetch');
 
-export async function getStaticProps() {
+export async function getInitialProps() {
   const res = await fetch('/api/balance')
   const balance = await res.json()
   return {
@@ -15,6 +15,7 @@ export async function getStaticProps() {
     }
   }
 }
+
 
 export default function Home({ balance }) {
   return (
