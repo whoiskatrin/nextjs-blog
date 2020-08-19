@@ -3,28 +3,23 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import Date from '../components/date'
+import fetch from 'node-fetch'
+import { server } from '../config';
 
-const fetch = require('node-fetch');
-
-export async function getInitialProps() {
-  const res = await fetch('/api/balance')
-  const balance = await res.json()
-  return {
-    props: {
-      balance
-    }
-  }
+export async function getServerSideProps() {
+  const res = await fetch(`${server}/api/balance`)
+  const data = await res.json()
+  return { props: { data } }
 }
 
-
-export default function Home({ balance }) {
+export default function Home(balance) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        Your current balance: {balance.text}
+      <h1>  Your current balance: {balance.data.text}</h1>
       </section>
     </Layout>
   )
