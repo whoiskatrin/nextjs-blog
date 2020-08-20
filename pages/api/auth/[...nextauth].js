@@ -82,7 +82,11 @@ const options = {
   events: { },
 
   // Enable debug messages in the console if you are having problems
-  debug: false,
+  debug: true,
 }
 
-export default (req, res) => NextAuth(req, res, options)
+export default (req, res) => {
+  console.log(process.env.GITHUB_SECRET)
+  // console.log(req)
+  return NextAuth(req, res, options)
+}
