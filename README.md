@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+Pet project: personal finance dashboard using open banking API.
+
+Stack: Nextjs, TrueLayer, React
